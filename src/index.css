@@ -1,0 +1,83 @@
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.slider {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 55px 73px 55px;
+  position: relative;
+}
+
+.slider-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.slider-name {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #8B5CF6;
+}
+
+.slider-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.slider-quote {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: #64748B;
+}
+
+.slider-quote-right {
+  font-size: 48px;
+  color: #8B5CF6;
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  border: transparent;
+  /*background: transparent;*/
+  background: #64748B;
+  border-radius: 4px;
+  padding: 0;
+  height: 32px;
+}
+
+.btn-left {
+  left: 0;
+}
+
+.btn-right {
+  right: 0;
+}
+
+.btn:active {
+  background: #515d73;
+}
+
+.chevron {
+  font-size: 32px;
+  color: white;
+}
+
