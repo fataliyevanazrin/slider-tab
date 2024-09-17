@@ -1,41 +1,46 @@
 import React from 'react'
-import { FaQuoteRight } from "react-icons/fa";
-import { IoChevronForward } from "react-icons/io5";
-import { IoChevronBack } from "react-icons/io5";
-import {longList} from "./data.js";
+import {
+    MDBCarousel,
+    MDBCarouselItem,
+    MDBContainer,
+    MDBRow,
+    MDBCol,
+    MDBIcon,
+} from "mdb-react-ui-kit";
 
-const Slider = ({person, setIndex, index}) => {
-    const increseIndex = () => {
-        if(index===longList.length-1){
-            setIndex(0)
-            return;
-        }
-        setIndex(index+1)
-    }
-    const decreaseIndex = () => {
-        if(index===0){
-            setIndex(longList.length-1)
-            return;
-        }
-        setIndex(index-1)
-    }
+const Slider = ({people}) => {
     return (
-        <div className="slider" key={person.id}>
-            <img
-                src={person.image}
-                alt={name}
-                className="slider-img"/>
-            <h3 className="slider-name">{person.name}</h3>
-            <h4 className="slider-title">{person.title}</h4>
-            <p className="slider-quote">{person.quote}</p>
-            <FaQuoteRight className="slider-quote-right"/>
-            <button className="btn btn-left" onClick={decreaseIndex}>
-                <IoChevronBack className="chevron chevron-back"/>
-            </button>
-            <button className="btn btn-right" onClick={increseIndex}>
-                <IoChevronForward className="chevron chevron-forward"/>
-            </button>
+        <div className="slider">
+            <MDBContainer className="my-5">
+                <MDBCarousel showControls dark>
+                    {people.map((person, index) => {
+                        return (
+                            <MDBCarouselItem
+                                className={index===0 ? 'active text-center' : 'text-center'}
+                                key={index}>
+                                <img
+                                    src={person.image}
+                                    alt={person.name}
+                                    className="rounded-circle shadow-1-strong mb-4 slider-img"
+                                />
+                                <MDBRow className="d-flex justify-content-center">
+                                    <MDBCol lg="8">
+                                        <h5 className="slider-name">{person.name}</h5>
+                                        <p className="slider-title">{person.title}</p>
+                                        <p className="slider-quote">
+                                            {person.quote}
+                                        </p>
+                                        <MDBIcon fas icon="quote-right" className="slider-icon"/>
+                                    </MDBCol>
+                                </MDBRow>
+                            </MDBCarouselItem>
+                        )
+                    })}
+                </MDBCarousel>
+            </MDBContainer>
         </div>
     )
 }
 export default Slider
+
+
